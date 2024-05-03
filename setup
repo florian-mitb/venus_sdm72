@@ -1,0 +1,47 @@
+#!/bin/bash
+
+#	Fronius Smartmeter
+#	Setup script (install/uninstall)
+#
+# this script will accept the following commands on the command line:
+#	setup install
+#	setup uninstall
+#	setup reinstall (used to reinstall after Venus OS update)
+
+packageLogFile="/var/log/FroniusSmartmeter/current"
+
+#### following line incorporates helper resources into this script
+source "/data/SetupHelper/HelperResources/IncludeHelpers"
+#### end of lines to include helper resources
+
+# GitHub account info - fill in as appropriate
+# to include this package in SetupHelper automatic updates
+packageGitHubUser="florian-mitb"
+packageGitHubBranch="main"
+
+#### end of lines to include SetupHelper
+
+#### running manually and OK to proceed - prompt for input
+if [ "$scriptAction" == 'NONE' ] ; then
+    # display initial message
+    echo "This package adds compatibility for Easton SDM72 Energy meter forwards it to the Victron Dbus"
+
+    scriptAction='INSTALL'
+fi
+
+#### install code goes here
+if [ "$scriptAction" == 'INSTALL' ] ; then
+
+    logMessage "++ Installing Victron Dbus Easton SDM72 Energy meter"
+
+   # installService "$packageName"
+fi
+
+#### uninstalling - check scriptAction again
+# if an install step failed package needs to be removed
+if [ "$scriptAction" == 'UNINSTALL' ] ; then
+    logMessage "++ Uninstalling Victron Dbus Easton SDM72 Energy meter"
+
+   # removeService "$packageName"
+fi
+endScript
