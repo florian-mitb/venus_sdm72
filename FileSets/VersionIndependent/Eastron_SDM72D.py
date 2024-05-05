@@ -5,7 +5,7 @@
 # Version 1.4 - 2022-02-13
 #
 # Thanks to Victron for their open platform and especially for the support of Matthijs Vader
-# For any usage a donation to seashepherd.org with an amount of 5 USD/EUR/GBP or equivalent is expected
+
 
 import logging
 import Eastron_device as device
