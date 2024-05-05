@@ -8,11 +8,9 @@
 #	setup uninstall
 #	setup reinstall (used to reinstall after Venus OS update)
 
-packageLogFile="/var/log/FroniusSmartmeter/current"
+packageLogFile="/var/log/victron_easton/current"
 
-#### following line incorporates helper resources into this script
-source "/data/SetupHelper/HelperResources/IncludeHelpers"
-#### end of lines to include helper resources
+
 
 # GitHub account info - fill in as appropriate
 # to include this package in SetupHelper automatic updates
@@ -20,28 +18,24 @@ packageGitHubUser="florian-mitb"
 packageGitHubBranch="main"
 
 #### end of lines to include SetupHelper
+# tell CommonResources to:
+#	prompt for install/uninstall
+#	auto install or auto uninstall
+#	then exit
+#	IncludeHelpers will NOT return here !
 
-#### running manually and OK to proceed - prompt for input
-if [ "$scriptAction" == 'NONE' ] ; then
-    # display initial message
-    echo "This package adds compatibility for Easton SDM72 Energy meter forwards it to the Victron Dbus"
+standardPromptAndActions='yes'
 
-    scriptAction='INSTALL'
+#### following lines incorporate helper resources into this script
+pkgDir=$( dirname $0 )
+pkgName=$( basename $pkgDir )
+pkgRoot=$( dirname $pkgDir )
+if [ -e "$pkgDir/HelperResources/IncludeHelpers" ]; then
+	source "$pkgDir/HelperResources/IncludeHelpers"
+elif [ -e "$pkgRoot/SetupHelper/HelperResources/IncludeHelpers" ]; then
+	source "$pkgRoot/SetupHelper/HelperResources/IncludeHelpers"
+else
+	echo "$pkgName: helper files not found - can't continue" | tee -a "/data/log/SetupHelper"
+	exit 1
 fi
-
-#### install code goes here
-if [ "$scriptAction" == 'INSTALL' ] ; then
-
-    logMessage "++ Installing Victron Dbus Easton SDM72 Energy meter"
-
-   # installService "$packageName"
-fi
-
-#### uninstalling - check scriptAction again
-# if an install step failed package needs to be removed
-if [ "$scriptAction" == 'UNINSTALL' ] ; then
-    logMessage "++ Uninstalling Victron Dbus Easton SDM72 Energy meter"
-
-   # removeService "$packageName"
-fi
-endScript
+#### end of lines to include helper resources
