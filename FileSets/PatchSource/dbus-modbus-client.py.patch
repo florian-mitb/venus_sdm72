@@ -1,10 +1,9 @@
 --- dbus-modbus-client.py_org
 +++ dbus-modbus-client.py
-@@ -23,6 +23,7 @@
- import watchdog
-
+@@ -28,5 +28,6 @@
+ import abb                                                                                                                                              
  import carlo_gavazzi
 +import Eastron_SDM72D
- import dse
- import ev_charger
- import smappee
+ import comap                                                                                                                                            
+ import cre                                                                                                                                              
+ import deif
