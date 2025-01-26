@@ -1,5 +1,5 @@
---- dbus-modbus-client.py
-+++ dbus-modbus-client.new_py
+--- dbus-modbus-client.py-v3.53.orig
++++ dbus-modbus-client.py-v3.53
 @@ -27,6 +27,7 @@
  
  import abb
