@@ -1,10 +1,10 @@
---- dbus-modbus-client.py_org
-+++ dbus-modbus-client.py
-@@ -27,5 +27,6 @@
-
- import abb                                                                                                                                              
+--- dbus-modbus-client.py
++++ dbus-modbus-client.new_py
+@@ -27,6 +27,7 @@
+ 
+ import abb
  import carlo_gavazzi
 +import Eastron_SDM72D
- import comap                                                                                                                                            
- import cre                                                                                                                                              
+ import comap
+ import cre
  import deif
