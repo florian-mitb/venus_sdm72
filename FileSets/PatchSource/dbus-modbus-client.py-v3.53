@@ -27,6 +27,7 @@ import watchdog
 
 import abb
 import carlo_gavazzi
+import Eastron_SDM72D
 import comap
 import cre
 import deif
